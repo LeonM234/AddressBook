@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Address Book</title>
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
+</head>
+<body>
+
+  <div ng-controller="ContactsController as contactsCtrl">
+    <h1>Address Book</h1>
+
+    <form ng-submit="contactsCtrl.addNewContact(contact)">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" ng-model="contactsCtrl.newContact.name" required>
+      </div>
+      <div>
+        <label for="phone">Phone</label>
+        <input type="number" id="phone" ng-model="contactsCtrl.newContact.phone">
+      </div>
+      <div>
+        <label for="address">Address</label>
+        <input type="text" id="address" ng-model="contactsCtrl.newContact.address">
+      </div>
+      <div>
+        <label for="email">E-mail</label>
+        <input type="text" id="email" ng-model="contactsCtrl.newContact.email">
+      </div>
+      <input type="submit" value="Add Contact">
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Address</th>
+          <th>E-mail</th>
+        </tr>
+        <thead>
+          <tbody>
+            <tr ng-repeat="contact in contactsCtrl.contacts">
+              <td>{{contact.name}}</td>
+              <td>{{contact.phone}}</td>
+              <td>{{contact.address}}</td>
+              <td>{{contact.email}}</td>
+              <td><button ng-click="contactsCtrl.removeContact(contact)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <script src="bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="bower_components/angular/angular.min.js"></script>
+      <script src="scripts/main.js"></script>
+    </body>
+    </html>
+
