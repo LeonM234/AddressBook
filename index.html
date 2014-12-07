@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/main.css">
   </head>
+
   <body>
     <h1>Address Book</h1>
-	<div class="container" ng-controller="addressBookController as abCtrl">
-		<form name="newContactForm" ng-submit="newContactForm.$valid && abCtrl.addNewContact()" novalidate>
+	<div class="container" ng-controller="addressBookController as addCtrl">
+		<form name="newContactForm" ng-submit="newContactForm.$valid && addCtrl.addNewContact()" novalidate>
 	  <div class="col-xs-4">
       <label class="control-label"> Name:</label>
          <input class="form-control" type="text" ng-model="abCtrl.newContact.name">
@@ -32,18 +33,20 @@
         <tr>
           <th>Image</th>
           <th>Name</th>
+          <th>Address</th>
           <th>Email</th>
           <th>Phone</th>
           <th>Delete</th>
         </tr>
-        </thead>
+      </thead>
       <tbody>
         <tr ng-repeat="(contactId, contact) in abCtrl.contacts">
           <td><img class="ab-img" ng-src="{{contact.image}}"></td>
           <td>{{contact.name}}</td>
+          <td>{{contact.address}}</td>
           <td>{{contact.email}}</td>
           <td>{{contact.phone}}</td>
-          <td><button ng-click="abCtrl.removeContact(contactId)">Delete</button></td>
+          <td><button class="btn btn-danger" ng-click="abCtrl.removeContact(contactId)">Delete</button></td>
         </tr>
       </tbody>
     </table>
@@ -54,4 +57,5 @@
   <script src='bower_components/angular/angular.min.js'></script>
   <script src='js/main.js'></script>
   </body>
+
 </html>

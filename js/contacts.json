@@ -1,9 +1,39 @@
-{"contacts": [
+{"contacts":
+  [
     {
       "name": "Leon Peck",
-      "phone": "8675309",
-      "address":  "Valhalla",
-      "email": "l33t@aol.com"
+      "phone": "901-867-5309",
+      "address": "Valhalla",
+      "email": "l33t@aol.com",
+      "image": "https://avatars3.githubusercontent.com/u/9039233?v=3&s=460"
+    },
+    {
+      "name": "Dad Sharpe",
+      "phone": "212-855-2709",
+      "address": "Home Depot Way",
+      "email": "buildingAdeck@aol.com",
+      "image": "https://avatars1.githubusercontent.com/u/9039237?v=3&s=460"
+    },
+    {
+      "name": "Light Box",
+      "phone": "215-423-4588",
+      "address": "Nested List Drive",
+      "email": "phileagles@aol.com",
+      "image": "https://avatars1.githubusercontent.com/u/9039241?v=3&s=460"
+    },
+    {
+      "name": "Red Light",
+      "phone": "800-423-5555",
+      "address": "You Don't Have to Turn On",
+      "email": "Roxanne@aol.com",
+      "image": "https://avatars0.githubusercontent.com/u/9039234?v=3&s=460"
+    },
+    {
+      "name": "Alex Pizsnacks",
+      "phone": "905-777-6666",
+      "address": "Diet Double Dew Way",
+      "email": "dothedew@aol.com",
+      "image": "https://avatars2.githubusercontent.com/u/9039231?v=3&s=460"
     }
   ]
 }

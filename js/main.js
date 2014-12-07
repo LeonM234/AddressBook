@@ -5,6 +5,11 @@
     .controller('addressBookController', function($http){
       var vm = this;
 
+      $http.get('https://leonaddress-book.firebaseio.com/contacts.json')
+        .success(function(data){
+          vm.contacts = data;
+        });
+
       vm.addNewContact = function(){
         vm.contacts.push(vm.newContact);
       };
