@@ -42,7 +42,7 @@
 
       function _defaultContact(){
         return {
-
+          name: 'Add Someone!'
         }
       }
       // vm.newContact = {};
