@@ -11,30 +11,40 @@
         });
 
       vm.addNewContact = function(){
-        $http.post('https://leonaddress-book.firebaseio.com/contacts.json')
+        $http.post('https://leonaddress-book.firebaseio.com/contacts.json', vm.newContact)
           .success(function(data){
             vm.contacts[data.name] = vm.newContact;
-            vm.newContact = null;
-            console.log("add new contact is firing. new info is:" + vm.newContact.name);
-          });
+            vm.newContact = _defaultContact();
+            console.log("Running addNewContact. The info is:" + vm.newContact.name);
+          })
           .error(function(err){
-            console.log(err);
+            console.log('add contact error:' + err);
           });
         // --Prev Code--
         // vm.contacts.push(vm.newContact);
       };
 
-      vm.removeContact = function(contact){
-        var url = 'https://leonaddress-book.firebaseio.com/' + addId + '.json';
+      vm.removeContact = function(contactId){
+        var url = 'https://leonaddress-book.firebaseio.com/contacts/' + contactId + '.json';
         $http.delete(url)
           .success(function(){
-            delete vm.contacts[add];
+            delete vm.contacts[contactId];
+          })
+          .error(function(err){
+            console.log('remove contact error:' + err);
           });
         // --Prev Code--
         // var index = vm.contacts.indexOf(contact);
         // vm.contacts.splice(index, 1);
       };
 
-      vm.newContact = {};
+      vm.newContact = _defaultContact();
+
+      function _defaultContact(){
+        return {
+
+        }
+      }
+      // vm.newContact = {};
   });
 })();
