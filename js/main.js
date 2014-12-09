@@ -1,48 +1,81 @@
 ;(function(){
   'use strict';
 
-  angular.module('addressBook', [])
+  angular.module('addressBook', ['ngRoute'])
+    .config(function($routeProvider){
+      $routeProvider
+        .when('/', {
+          templateUrl: 'views/table.html',
+          controller: 'addressBookController',
+          controllerAs: 'abctrl'
+        })
+        .when('/new', {
+          templateUrl: 'views/forms.html',
+          controller: 'addressBookController',
+          controllerAs: 'abctrl'
+        })
+        .when('/:id', {
+          templateUrl: 'views/show.html',
+          controller: 'ShowController',
+          controllerAs: 'show'
+        })
+        .otherwise({redirectTo: '/'});
+    })
+
+    .controller('showController', function($http, $routeParams){
+      var vm = this;
+      var id = $routeParams.id;
+      $http.get('https://leonaddress-book.firebaseio.com/contacts/' + id + '.json')
+        .success(function(data){
+          console.log(data);
+          vm.contact = data;
+        })
+        .error(function(err){
+          console.log(err);
+        });
+    })
+
     .controller('addressBookController', function($http){
       var vm = this;
 
-      $http.get('https://leonaddress-book.firebaseio.com/contacts.json')
+      var httpget = function(){
+        $http.get('https://leonaddress-book.firebaseio.com/contacts.json')
         .success(function(data){
           vm.contacts = data;
         });
+      }
+
+      httpget();
 
       vm.addNewContact = function(){
         $http.post('https://leonaddress-book.firebaseio.com/contacts.json', vm.newContact)
           .success(function(data){
+            console.log(vm.contacts);
+            console.log(vm.newContact);
             vm.contacts[data.name] = vm.newContact;
             vm.newContact = _defaultContact();
-            console.log("Running addNewContact. The info is:" + vm.newContact.name);
           })
           .error(function(err){
             console.log('add contact error:' + err);
           });
-        // --Prev Code--
-        // vm.contacts.push(vm.newContact);
       };
 
       vm.removeContact = function(contactId){
         var url = 'https://leonaddress-book.firebaseio.com/contacts/' + contactId + '.json';
         $http.delete(url)
-          .success(function(){
+          .success(function(data){
             delete vm.contacts[contactId];
           })
           .error(function(err){
             console.log('remove contact error:' + err);
           });
-        // --Prev Code--
-        // var index = vm.contacts.indexOf(contact);
-        // vm.contacts.splice(index, 1);
       };
 
       vm.newContact = _defaultContact();
 
       function _defaultContact(){
         return {
-          name: 'Add Someone!'
+          name: ''
         }
       }
       // vm.newContact = {};

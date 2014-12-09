@@ -1,0 +1,25 @@
+<!-- may need to delete the divs - or add "table-responsive" to the <table> -->
+<!--<div class="table-responsive">-->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="(contactId, contact) in abctrl.contacts">
+        <td><img class="add-img" ng-src="{{contact.image}}"></td>
+        <td>{{contact.name}}</td>
+        <td>{{contact.address}}</td>
+        <td>{{contact.email}}</td>
+        <td>{{contact.phone}}</td>
+        <td><button class="btn btn-danger" ng-click="abctrl.removeContact(contactId)">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>
+<!--</div>-->

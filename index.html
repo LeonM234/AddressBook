@@ -11,55 +11,16 @@
   </head>
 
   <body>
-    <h1>Address Book</h1>
-	<div class="container" ng-controller="addressBookController as addCtrl">
-		<form name="newContactForm" ng-submit="newContactForm.$valid && addCtrl.addNewContact()" novalidate>
-	    <div class="col-xs-3">
-        <label class="control-label"> Name: </label>
-         <input class="form-control" type="text" ng-model="addCtrl.newContact.name">
-      </div>
-      <div class="col-xs-3">
-        <label class="control-label"> Address: </label>
-        <input class="form-control" type="text" ng-model="addCtrl.newContact.address">
-      </div>
-      <div class="col-xs-3">
-        <label class="control-label"> Email: </label>
-        <input class="form-control" type="text" ng-model="addCtrl.newContact.email">
-      </div>
-      <div class="col-xs-3">
-        <label class="control-label">  Phone:  </label>
-       <input class="form-control" type="text" ng-model="addCtrl.newContact.phone">
-      </div>
-        <input type="submit" class="btn btn-success" value="Add Contact" ng-show="newContactForm.$valid"/>
-    </form>
-    <div class="table-responsive">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Image</th>
-          <th>Name</th>
-          <th>Address</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Delete</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="(contactId, contact) in addCtrl.contacts">
-          <td><img class="add-img" ng-src="{{contact.image}}"></td>
-          <td>{{contact.name}}</td>
-          <td>{{contact.address}}</td>
-          <td>{{contact.email}}</td>
-          <td>{{contact.phone}}</td>
-          <td><button class="btn btn-danger" ng-click="addCtrl.removeContact(contactId)">Delete</button></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="container">
+      <h1>Address Book</h1>
+      <a class="btn btn-primary" id="allCont" href="/#/">All Contacts</a>
+      <a class="btn btn-primary" id="newCont" href="/#/new">New Contact</a>
+      <div ng-view></div>
     </div>
-	</div>
   <script src='bower_components/jquery/dist/jquery.min.js'></script>
   <script src='bower_components/bootstrap/dist/js/bootstrap.min.js'></script>
   <script src='bower_components/angular/angular.min.js'></script>
+  <script src='bower_components/angular-route/angular-route.min.js'></script>
   <script src='js/main.js'></script>
   </body>
 
