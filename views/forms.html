@@ -1,19 +1,23 @@
 <form name="newContactForm" ng-submit="newContactForm.$valid && abctrl.addNewContact()" novalidate>
-  <div class="col-xs-3">
+  <div class="col-xs-2">
     <label class="control-label"> Name: </label>
-    <input class="form-control" type="text" ng-model="abctrl.newContact.name">
+    <input class="form-control" type="text" ng-model="abctrl.newContact.name" required>
   </div>
   <div class="col-xs-3">
     <label class="control-label"> Address: </label>
     <input class="form-control" type="text" ng-model="abctrl.newContact.address">
   </div>
-  <div class="col-xs-3">
+  <div class="col-xs-2">
     <label class="control-label"> Email: </label>
     <input class="form-control" type="text" ng-model="abctrl.newContact.email">
   </div>
-  <div class="col-xs-3">
+  <div class="col-xs-2">
     <label class="control-label">  Phone:  </label>
     <input class="form-control" type="text" ng-model="abctrl.newContact.phone">
+  </div>
+  <div class="col-xs-3">
+    <label class="control-label">  B-Day:  </label>
+    <input class="form-control" type="text" ng-model="abctrl.newContact.birthday" data-date-format="yyyy-MM-dd" bs-datepicker>
   </div>
   <input type="submit" class="btn btn-success" value="Add Contact" ng-show="newContactForm.$valid"/>
 </form>

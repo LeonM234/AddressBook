@@ -9,11 +9,13 @@ h1 {
 
 #allCont {
   margin-left: 34%;
+  margin-bottom: 10px;
 }
 
 #newCont {
   float: right;
   margin-right: 34%;
+  margin-bottom: 10px;
 }
 
 .btn-success{
@@ -25,4 +27,21 @@ h1 {
   height: 50px;
   width: 50px;
   border-radius: 50%;
+}
+
+.list-group{
+  display: block;
+  width: 50%;
+  margin: 0 auto;
+}
+.list-group-item{
+  padding-left: 20px;
+}
+
+#show-pic{
+  display: block;
+  height: 20%;
+  width: 20%;
+  border-radius: 50%;
+  margin: 0px auto;
 }

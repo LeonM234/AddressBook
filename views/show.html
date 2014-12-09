@@ -1,2 +1,9 @@
 <h1>{{show.contact.name}}</h1>
-<img ng-src={{show.contact.image}}</img>
+<img id="show-pic" ng-src={{show.contact.image}}</img>
+
+<ul class="list-group">
+  <li class="list-group-item"><span class="glyphicon glyphicon-home"> {{show.contact.address}} <span></li>
+  <li class="list-group-item"><span class="glyphicon glyphicon-envelope"> {{show.contact.email}} </span></li>
+  <li class="list-group-item"><span class="glyphicon glyphicon-phone"> {{show.contact.phone}} </span></li>
+  <li class="list-group-item"><span class="glyphicon glyphicon-gift"> {{show.contact.birthday | date}} </span></li>
+</ul>
